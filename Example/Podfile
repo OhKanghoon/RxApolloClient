@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RxApolloClient_Example' do
+  pod 'RxApolloClient', :path => '../'
+
+  target 'RxApolloClient_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
