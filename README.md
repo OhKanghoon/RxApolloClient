@@ -11,6 +11,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+Xcode 10.0
+Swift 4.2
+
 ## Installation
 
 RxApolloClient is available through [CocoaPods](https://cocoapods.org). To install
@@ -19,6 +22,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'RxApolloClient'
 ```
+
+## Usage
 
 ## Author
 

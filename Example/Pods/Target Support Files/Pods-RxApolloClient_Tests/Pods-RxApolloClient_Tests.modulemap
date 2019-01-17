@@ -1,0 +1,6 @@
+framework module Pods_RxApolloClient_Tests {
+  umbrella header "Pods-RxApolloClient_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
