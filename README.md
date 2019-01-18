@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Dependencies
+- [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 4.0)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (>=0.9.4)
 
 ## Requirements
 
@@ -24,21 +24,25 @@ pod 'RxApolloClient'
 ```
 
 ## Usage
-### Fetch
+#### Fetch
 ```swift
 client.rx
   .fetch(query: SearchRepositoriesQuery(query: "test"))
 ```
-### Watch
+#### Watch
 ```swift
 client.rx
   .watch(query: SearchRepositoriesQuery(query: "test"))
 ```
-### Mutate
+#### Mutate
 ```swift
 client.rx
   .perform(mutation: AddStarMutation(id: "test"))
 ```
+
+## Example
+
+- [Github Search](https://github.com/OhKanghoon/RxApolloClient/tree/master/Example)
 
 ## Author
 
