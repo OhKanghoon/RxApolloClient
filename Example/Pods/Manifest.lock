@@ -6,16 +6,25 @@ PODS:
     - Apollo (~> 0.9.4)
     - RxSwift (~> 4.0)
   - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
   - RxApolloClient (from `../`)
+  - RxCocoa (~> 4.4.0)
+  - RxOptional (~> 3.6.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Apollo
     - RxAtomic
+    - RxCocoa
+    - RxOptional
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -24,10 +33,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Apollo: 450856adbdebcdf28c3c671f81732ac3f9944065
-  RxApolloClient: e134f29424210232182eabfc3379e24c15cc538f
+  RxApolloClient: 3d1d720f79e9ff67e70cb422822676eba5ccdd5d
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: 9133345dde4d655b5d50bd70c27ab14d4f468909
+PODFILE CHECKSUM: e254b1f5e2e816d0ef517467ca5360c13646d7d4
 
 COCOAPODS: 1.5.3

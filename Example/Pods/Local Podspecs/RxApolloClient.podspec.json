@@ -15,6 +15,7 @@
     "git": "https://github.com/OhKanghoon/RxApolloClient.git",
     "tag": "0.1.0"
   },
+  "cocoapods_version": ">= 1.4.0",
   "platforms": {
     "ios": "9.0"
   },

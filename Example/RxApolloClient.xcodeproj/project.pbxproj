@@ -15,6 +15,13 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		BAA3D66721F1CB6500E1DE87 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D66621F1CB6500E1DE87 /* ViewModel.swift */; };
+		BAA3D66921F1CC5F00E1DE87 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D66821F1CC5F00E1DE87 /* List.swift */; };
+		BAA3D66B21F1CC9200E1DE87 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = BAA3D66A21F1CC9200E1DE87 /* schema.json */; };
+		BAA3D66D21F1CC9C00E1DE87 /* RepoSearch.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BAA3D66C21F1CC9C00E1DE87 /* RepoSearch.graphql */; };
+		BAA3D66F21F1CCDB00E1DE87 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D66E21F1CCDB00E1DE87 /* API.swift */; };
+		BAA3D67321F1D0A300E1DE87 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D67221F1D0A300E1DE87 /* GithubService.swift */; };
+		BAA3D67521F1D12300E1DE87 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D67421F1D12300E1DE87 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,13 @@
 		9B43B7AC01E22D7F51B06DA3 /* Pods_RxApolloClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxApolloClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA3CDF090606C6B389CADFE /* RxApolloClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RxApolloClient.podspec; path = ../RxApolloClient.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A640761279F2AACA237534C4 /* Pods-RxApolloClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxApolloClient_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxApolloClient_Example/Pods-RxApolloClient_Example.release.xcconfig"; sourceTree = "<group>"; };
+		BAA3D66621F1CB6500E1DE87 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BAA3D66821F1CC5F00E1DE87 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		BAA3D66A21F1CC9200E1DE87 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		BAA3D66C21F1CC9C00E1DE87 /* RepoSearch.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepoSearch.graphql; sourceTree = "<group>"; };
+		BAA3D66E21F1CCDB00E1DE87 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BAA3D67221F1D0A300E1DE87 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		BAA3D67421F1D12300E1DE87 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		E0A59CD22CBA2415A9625B8E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,8 +116,15 @@
 		607FACD21AFB9204008FA782 /* Example for RxApolloClient */ = {
 			isa = PBXGroup;
 			children = (
+				BAA3D66C21F1CC9C00E1DE87 /* RepoSearch.graphql */,
+				BAA3D66A21F1CC9200E1DE87 /* schema.json */,
+				BAA3D66E21F1CCDB00E1DE87 /* API.swift */,
+				BAA3D67421F1D12300E1DE87 /* Client.swift */,
+				BAA3D67221F1D0A300E1DE87 /* GithubService.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				BAA3D66621F1CB6500E1DE87 /* ViewModel.swift */,
+				BAA3D66821F1CC5F00E1DE87 /* List.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -245,6 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA3D66B21F1CC9200E1DE87 /* schema.json in Resources */,
+				BAA3D66D21F1CC9C00E1DE87 /* RepoSearch.graphql in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -317,6 +340,8 @@
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/RxApolloClient/RxApolloClient.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -326,6 +351,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxApolloClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +368,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BAA3D67521F1D12300E1DE87 /* Client.swift in Sources */,
+				BAA3D66921F1CC5F00E1DE87 /* List.swift in Sources */,
+				BAA3D67321F1D0A300E1DE87 /* GithubService.swift in Sources */,
+				BAA3D66721F1CB6500E1DE87 /* ViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				BAA3D66F21F1CCDB00E1DE87 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
