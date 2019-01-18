@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.author           = { 'OhKanghoon' => 'ggaa96@naver.com' }
   s.source           = { :git => 'https://github.com/OhKanghoon/RxApolloClient.git', :tag => s.version.to_s }
 
-  s.cocoapods_version = '>= 1.4.0'
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'RxApolloClient/Classes/**/*'

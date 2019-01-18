@@ -24,6 +24,21 @@ pod 'RxApolloClient'
 ```
 
 ## Usage
+### Fetch
+```swift
+client.rx
+  .fetch(query: SearchRepositoriesQuery(query: "test"))
+```
+### Watch
+```swift
+client.rx
+  .watch(query: SearchRepositoriesQuery(query: "test"))
+```
+### Mutate
+```swift
+client.rx
+  .perform(mutation: AddStarMutation(id: "test"))
+```
 
 ## Author
 
