@@ -6,8 +6,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 
 ## Dependencies
-- [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 4.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (>=0.9.4)
+- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 4.0)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (~>0.9.4)
 
 ## Requirements
 
