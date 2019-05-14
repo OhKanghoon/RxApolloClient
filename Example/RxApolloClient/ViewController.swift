@@ -27,17 +27,15 @@ class ViewController: UIViewController {
         searchBar.rx.text
             .orEmpty
             .filterEmpty()
-            .throttle(0.3, scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .map { ($0, nil) }
             .bind(to: viewModel.searchRelay)
             .disposed(by: disposeBag)
         
         viewModel.repoList
-            .filterNil()
             .map { $0.items }
             .filterEmpty()
-            .observeOn(MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: "repocell")) { (_, repo, cell) in
+            .drive(tableView.rx.items(cellIdentifier: "repocell")) { (_, repo, cell) in
                 cell.textLabel?.text = repo.name
             }.disposed(by: disposeBag)
         
@@ -51,7 +49,6 @@ class ViewController: UIViewController {
                     contentHeight > tableViewHeight else { return false }
                 return (offset.y + tableViewHeight) >= contentHeight - tableViewHeight / 2
             }.withLatestFrom(self.viewModel.repoList)
-            .filterNil()
             .filter { $0.after != nil }
             .map { ($0.query, $0.after) }
             .bind(to: viewModel.searchRelay)

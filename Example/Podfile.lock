@@ -1,30 +1,31 @@
 PODS:
-  - Apollo (0.9.4):
-    - Apollo/Core (= 0.9.4)
-  - Apollo/Core (0.9.4)
-  - RxApolloClient (0.1.0):
-    - Apollo (~> 0.9.4)
-    - RxSwift (~> 4.0)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
-  - RxOptional (3.6.2):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
+  - Apollo (0.10.1):
+    - Apollo/Core (= 0.10.1)
+  - Apollo/Core (0.10.1)
+  - RxApolloClient (1.0.0):
+    - Apollo (>= 0.10.1)
+    - RxSwift (>= 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxOptional (4.0.0):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - RxApolloClient (from `../`)
-  - RxCocoa (~> 4.4.0)
-  - RxOptional (~> 3.6.2)
+  - RxCocoa (~> 5.0.0)
+  - RxOptional (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Apollo
-    - RxAtomic
     - RxCocoa
     - RxOptional
+    - RxRelay
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -32,13 +33,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Apollo: 450856adbdebcdf28c3c671f81732ac3f9944065
-  RxApolloClient: 3d1d720f79e9ff67e70cb422822676eba5ccdd5d
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
-  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  Apollo: 4d690a9b2e48e8820182df4b988d7a253e1ee589
+  RxApolloClient: 7ec673da7862e17d350067c78795921440381b42
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxOptional: 9904e2219d59260c3c171273d475b2126de187e8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: e254b1f5e2e816d0ef517467ca5360c13646d7d4
+PODFILE CHECKSUM: 10bf8cb1abba3d607c1c8fb49a0de38bbf36ea5a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

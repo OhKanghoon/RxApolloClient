@@ -16,12 +16,10 @@ class ViewModel {
     let searchRelay = PublishRelay<(String, String?)>()
     
     // Output
-    let repoList = BehaviorRelay<List<Repository>?>(value: nil)
-    
-    let disposeBag = DisposeBag()
-    
+    let repoList: Driver<List<Repository>>
+        
     init(_ githubService: GithubServiceType) {
-        searchRelay
+        repoList = searchRelay
             .distinctUntilChanged { $0.0 == $1.0 && $0.1 == $1.1 }
             .flatMapLatest { githubService.searchRepositories(request: $0) }
             .scan(nil) { (old, new) -> List<Repository> in
@@ -30,8 +28,7 @@ class ViewModel {
                 return .init(query: new.query,
                              items: old.items + new.items,
                              after: new.after)
-            }
-            .bind(to: repoList)
-            .disposed(by: disposeBag)
+            }.filterNil()
+            .asDriver { _ in .never() }
     }
 }
