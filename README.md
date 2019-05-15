@@ -22,13 +22,13 @@ $ sh get_gql.sh
 ```
 
 ## Dependencies
-- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 4.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (~>0.9.4)
+- [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 5.0)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (>= 0.10.1)
 
 ## Requirements
 
 - Xcode 10.0
-- Swift 4.2
+- Swift 5
 
 ## Installation
 

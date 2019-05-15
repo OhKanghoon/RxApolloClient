@@ -29,8 +29,8 @@ extension Reactive where Base: ApolloClient {
     public func fetch<Query: GraphQLQuery>(query: Query,
                                            cachePolicy: CachePolicy = .returnCacheDataElseFetch,
                                            queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
-        return Observable.create { observer in
-            let cancellable = self.base
+        return Observable.create { [weak base] observer in
+            let cancellable = base?
                 .fetch(query: query,
                        cachePolicy: cachePolicy,
                        queue: queue,
@@ -47,7 +47,7 @@ extension Reactive where Base: ApolloClient {
                         }
                 })
             return Disposables.create {
-                cancellable.cancel()
+                cancellable?.cancel()
             }
         }
     }
@@ -64,8 +64,8 @@ extension Reactive where Base: ApolloClient {
     public func watch<Query: GraphQLQuery>(query: Query,
                                            cachePolicy: CachePolicy = .returnCacheDataElseFetch,
                                            queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
-        return Observable.create { observer in
-            let cancellable = self.base
+        return Observable.create { [weak base] observer in
+            let cancellable = base?
                 .watch(query: query,
                        cachePolicy: cachePolicy,
                        queue: queue,
@@ -79,7 +79,7 @@ extension Reactive where Base: ApolloClient {
                         }
                 })
             return Disposables.create {
-                cancellable.cancel()
+                cancellable?.cancel()
             }
         }
     }
@@ -94,8 +94,8 @@ extension Reactive where Base: ApolloClient {
      */
     public func perform<Mutation: GraphQLMutation>(mutation: Mutation,
                                                    queue: DispatchQueue = DispatchQueue.main) -> Observable<Mutation.Data> {
-        return Observable.create { observer in
-            let cancellable = self.base
+        return Observable.create { [weak base] observer in
+            let cancellable = base?
                 .perform(mutation: mutation,
                          queue: queue,
                          resultHandler: { (result, error) in
@@ -111,7 +111,7 @@ extension Reactive where Base: ApolloClient {
                             }
                 })
             return Disposables.create {
-                cancellable.cancel()
+                cancellable?.cancel()
             }
         }
     }

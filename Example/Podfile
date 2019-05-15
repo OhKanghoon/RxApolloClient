@@ -2,8 +2,8 @@ use_frameworks!
 
 target 'RxApolloClient_Example' do
   pod 'RxApolloClient', :path => '../'
-  pod 'RxCocoa', '~> 4.4.0'
-  pod 'RxOptional' , '~> 3.6.2'
+  pod 'RxCocoa', '~> 5.0.0'
+  pod 'RxOptional' , '~> 4.0.0'
   
   target 'RxApolloClient_Tests' do
     inherit! :search_paths

@@ -19,8 +19,7 @@ protocol GithubServiceType {
 class GithubService: GithubServiceType {
     
     func searchRepositories(request: (String, String?)) -> Single<List<Repository>> {
-        let query = request.0
-        let after = request.1
+        let (query, after) = request
         return Client.shared
             .fetch(query: SearchRepositoriesQuery(query: query,
                                                   first: 20,
