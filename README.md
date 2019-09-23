@@ -14,7 +14,7 @@ $ npm install -g apollo 2.18.3
 #### get_gql.sh
 ```sh
 cd ____ # project folder
-apollo schema:download --endpoint=__________ ./schema.json# end point url / scheme.json location
+apollo schema:download --endpoint=__________ ./schema.json # end point url / scheme.json location
 apollo codegen:generate --target=swift --includes="$(find . -name '*.graphql')" --localSchemaFile=_______/schema.json _______/GraphQLAPI.swift # scheme.json location / generated API code location
 ```
 ```sh
