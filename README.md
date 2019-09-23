@@ -56,6 +56,18 @@ client.rx
   .perform(mutation:)
 ```
 
+#### Upload
+```swift
+client.rx
+  .upload(operation:, files:)
+```
+
+### Subscribe
+```swift
+client.rx
+  .subscribe(subscription:)
+```
+
 ## Example
 
 - [Github Search](https://github.com/OhKanghoon/RxApolloClient/tree/master/Example)
