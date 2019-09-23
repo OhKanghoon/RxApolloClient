@@ -22,28 +22,34 @@ extension Reactive where Base: ApolloClient {
      
      - parameter query: The query to fetch.
      - parameter cachePolicy: A cache policy that specifies whether results should be fetched from the server or loaded from the local cache
+     - parameter context: [optional] A context to use for the cache to work with results. Should default to nil.
      - parameter queue: A dispatch queue on which the result handler will be called. Defaults to the main queue.
      
      - returns: A generic observable of fetched query data
      */
     public func fetch<Query: GraphQLQuery>(query: Query,
                                            cachePolicy: CachePolicy = .returnCacheDataElseFetch,
-                                           queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
-        return Observable.create { [weak base] observer in
+                                           context: UnsafeMutableRawPointer? = nil,
+                                           queue: DispatchQueue = DispatchQueue.main) -> Maybe<Query.Data> {
+        return Maybe.create { [weak base] observer in
             let cancellable = base?
                 .fetch(query: query,
                        cachePolicy: cachePolicy,
+                       context: context,
                        queue: queue,
-                       resultHandler: { (result, error) in
-                        if let error = error {
-                            observer.onError(error)
-                        } else if let errors = result?.errors {
-                            observer.onError(ApolloError.gqlErrors(errors))
-                        } else if let data = result?.data {
-                            observer.onNext(data)
-                            observer.onCompleted()
-                        } else {
-                            observer.onCompleted()
+                       resultHandler: { result in
+                        switch result {
+                        case let .success(gqlResult):
+                            if let errors = gqlResult.errors {
+                                observer(.error(ApolloError.gqlErrors(errors)))
+                            } else if let data = gqlResult.data {
+                                observer(.success(data))
+                            } else {
+                                observer(.completed)
+                            }
+
+                        case let .failure(error):
+                            observer(.error(error))
                         }
                 })
             return Disposables.create {
@@ -65,21 +71,25 @@ extension Reactive where Base: ApolloClient {
                                            cachePolicy: CachePolicy = .returnCacheDataElseFetch,
                                            queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
         return Observable.create { [weak base] observer in
-            let cancellable = base?
+            let watcher = base?
                 .watch(query: query,
                        cachePolicy: cachePolicy,
                        queue: queue,
-                       resultHandler: { (result, error) in
-                        if let error = error {
+                       resultHandler: { result in
+                        switch result {
+                        case let .success(gqlResult):
+                            if let errors = gqlResult.errors {
+                                observer.onError(ApolloError.gqlErrors(errors))
+                            } else if let data = gqlResult.data {
+                                observer.onNext(data)
+                            }
+
+                        case let .failure(error):
                             observer.onError(error)
-                        } else if let errors = result?.errors {
-                            observer.onError(ApolloError.gqlErrors(errors))
-                        } else if let data = result?.data {
-                            observer.onNext(data)
                         }
                 })
             return Disposables.create {
-                cancellable?.cancel()
+                watcher?.cancel()
             }
         }
     }
@@ -88,26 +98,32 @@ extension Reactive where Base: ApolloClient {
      Performs a mutation by sending it to the server.
      
      - parameter mutation: The query to fetch.
+     - parameter context: [optional] A context to use for the cache to work with results. Should default to nil.
      - parameter queue: A dispatch queue on which the result handler will be called. Defaults to the main queue.
      
      - returns: A generic observable of created mutation data
      */
     public func perform<Mutation: GraphQLMutation>(mutation: Mutation,
-                                                   queue: DispatchQueue = DispatchQueue.main) -> Observable<Mutation.Data> {
-        return Observable.create { [weak base] observer in
+                                                   context: UnsafeMutableRawPointer? = nil,
+                                                   queue: DispatchQueue = DispatchQueue.main) -> Maybe<Mutation.Data> {
+        return Maybe.create { [weak base] observer in
             let cancellable = base?
                 .perform(mutation: mutation,
+                         context: context,
                          queue: queue,
-                         resultHandler: { (result, error) in
-                            if let error = error {
-                                observer.onError(error)
-                            } else if let errors = result?.errors {
-                                observer.onError(ApolloError.gqlErrors(errors))
-                            } else if let data = result?.data {
-                                observer.onNext(data)
-                                observer.onCompleted()
-                            } else {
-                                observer.onCompleted()
+                         resultHandler: { result in
+                            switch result {
+                            case let .success(gqlResult):
+                                if let errors = gqlResult.errors {
+                                    observer(.error(ApolloError.gqlErrors(errors)))
+                                } else if let data = gqlResult.data {
+                                    observer(.success(data))
+                                } else {
+                                    observer(.completed)
+                                }
+
+                            case let .failure(error):
+                                observer(.error(error))
                             }
                 })
             return Disposables.create {

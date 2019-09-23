@@ -3,8 +3,34 @@
 import Apollo
 
 public final class SearchRepositoriesQuery: GraphQLQuery {
+  /// query SearchRepositories($query: String!, $first: Int!, $after: String) {
+  ///   search(query: $query, type: REPOSITORY, first: $first, after: $after) {
+  ///     __typename
+  ///     edges {
+  ///       __typename
+  ///       node {
+  ///         __typename
+  ///         ... on Repository {
+  ///           name
+  ///           owner {
+  ///             __typename
+  ///             avatarUrl
+  ///             login
+  ///           }
+  ///         }
+  ///       }
+  ///     }
+  ///     pageInfo {
+  ///       __typename
+  ///       endCursor
+  ///       hasNextPage
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query SearchRepositories($query: String!, $first: Int!, $after: String) {\n  search(query: $query, type: REPOSITORY, first: $first, after: $after) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ... on Repository {\n          name\n          owner {\n            __typename\n            avatarUrl\n            login\n          }\n        }\n      }\n    }\n    pageInfo {\n      __typename\n      endCursor\n      hasNextPage\n    }\n  }\n}"
+    "query SearchRepositories($query: String!, $first: Int!, $after: String) { search(query: $query, type: REPOSITORY, first: $first, after: $after) { __typename edges { __typename node { __typename ... on Repository { name owner { __typename avatarUrl login } } } } pageInfo { __typename endCursor hasNextPage } } }"
+
+  public let operationName = "SearchRepositories"
 
   public var query: String
   public var first: Int
