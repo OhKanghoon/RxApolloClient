@@ -13,14 +13,20 @@ import RxOptional
 
 class ViewController: UIViewController {
 
-    // MARK:- Interface
+    // MARK: Interface
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
-    // MARK:- Properties
-    let disposeBag = DisposeBag()
-    var viewModel = ViewModel(GithubService())
-    
+
+
+    // MARK: Properties
+
+    private let viewModel = ViewModel(GithubService(client: .init()))
+    private let disposeBag = DisposeBag()
+
+
+    // MARK: View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +43,8 @@ class ViewController: UIViewController {
             .filterEmpty()
             .drive(tableView.rx.items(cellIdentifier: "repocell")) { (_, repo, cell) in
                 cell.textLabel?.text = repo.name
-            }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
         
         tableView.rx.contentOffset
             .asObservable()

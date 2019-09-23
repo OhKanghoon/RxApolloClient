@@ -12,20 +12,16 @@ import RxSwift
 import RxApolloClient
 
 class Client {
-    
-    static let shared = Client()
-    
-    let client: ApolloClient
+    private let client: ApolloClient
     
     init() {
         let configuration: URLSessionConfiguration = .default
         // TODO: Add your token
         configuration.httpAdditionalHeaders = ["Authorization": "token ~~~~~~~~~~~"]
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-        
+        let session = URLSession(configuration: configuration)
         let url = URL(string: "https://api.github.com/graphql")!
-        client = ApolloClient(networkTransport: HTTPNetworkTransport(url: url,
-                                                                     configuration: configuration))
+        client = ApolloClient(networkTransport: HTTPNetworkTransport(url: url, session: session))
     }
     
     func fetch<Query: GraphQLQuery>(query: Query,
@@ -35,5 +31,6 @@ class Client {
             .fetch(query: query,
                    cachePolicy: cachePolicy,
                    queue: queue)
+            .asObservable()
     }
 }

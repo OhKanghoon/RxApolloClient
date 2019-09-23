@@ -8,14 +8,14 @@
 ## Get Started
 1. Install Apollo
 ```sh
-$ npm install -g apollo 1.9.2
+$ npm install -g apollo 2.18.3
 ```
 2. Fetch Scheme & Generate API Code
 #### get_gql.sh
 ```sh
 cd ____ # project folder
-apollo schema:download _______/schema.json --endpoint=__________ # scheme.json location  / end point url
-apollo codegen:generate --queries="$(find . -name '*.graphql')" --schema=_______/schema.json _______/GraphQLAPI.swift # scheme.json location / generated API code location
+apollo schema:download --endpoint=__________ ./schema.json# end point url / scheme.json location
+apollo codegen:generate --target=swift --includes="$(find . -name '*.graphql')" --localSchemaFile=_______/schema.json _______/GraphQLAPI.swift # scheme.json location / generated API code location
 ```
 ```sh
 $ sh get_gql.sh
@@ -23,7 +23,7 @@ $ sh get_gql.sh
 
 ## Dependencies
 - [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 5.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (>= 0.10.1)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.15.3)
 
 ## Requirements
 
@@ -43,17 +43,29 @@ pod 'RxApolloClient'
 #### Fetch
 ```swift
 client.rx
-  .fetch(query: SearchRepositoriesQuery(query: "test"))
+  .fetch(query:)
 ```
 #### Watch
 ```swift
 client.rx
-  .watch(query: SearchRepositoriesQuery(query: "test"))
+  .watch(query:)
 ```
 #### Mutate
 ```swift
 client.rx
-  .perform(mutation: AddStarMutation(id: "test"))
+  .perform(mutation:)
+```
+
+#### Upload
+```swift
+client.rx
+  .upload(operation:, files:)
+```
+
+### Subscribe
+```swift
+client.rx
+  .subscribe(subscription:)
 ```
 
 ## Example

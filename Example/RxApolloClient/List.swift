@@ -9,7 +9,6 @@
 import Foundation
 
 struct List<Element> {
-    
     let query: String
     var items: [Element]
     var after: String?
