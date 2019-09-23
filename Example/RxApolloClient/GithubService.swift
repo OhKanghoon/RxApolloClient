@@ -17,17 +17,23 @@ protocol GithubServiceType {
 }
 
 class GithubService: GithubServiceType {
+    private let client: Client
+
+    init(client: Client) {
+        self.client = client
+    }
     
     func searchRepositories(request: (String, String?)) -> Single<List<Repository>> {
         let (query, after) = request
-        return Client.shared
-            .fetch(query: SearchRepositoriesQuery(query: query,
-                                                  first: 20,
-                                                  after: after))
-            .map { List<Repository>(query: query,
-                                    items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],
-                                    after: $0.search.pageInfo.endCursor) }
-
+        return self.client
+            .fetch(query: SearchRepositoriesQuery(query: query, first: 20, after: after))
+            .map {
+                List<Repository>(
+                    query: query,
+                    items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],
+                    after: $0.search.pageInfo.endCursor
+                )
+            }
             .asSingle()
     }
 }

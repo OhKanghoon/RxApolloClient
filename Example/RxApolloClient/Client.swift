@@ -12,7 +12,7 @@ import RxSwift
 import RxApolloClient
 
 class Client {
-    let client: ApolloClient
+    private let client: ApolloClient
     
     init() {
         let configuration: URLSessionConfiguration = .default

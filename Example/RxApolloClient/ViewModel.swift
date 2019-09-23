@@ -28,7 +28,8 @@ class ViewModel {
                 return .init(query: new.query,
                              items: old.items + new.items,
                              after: new.after)
-            }.filterNil()
+            }
+            .filterNil()
             .asDriver { _ in .never() }
     }
 }
