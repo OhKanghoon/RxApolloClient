@@ -1,4 +1,4 @@
-osx_image: xcode10.2
+osx_image: xcode11
 language: objective-c
 
 cache: cocoapods
@@ -16,7 +16,7 @@ script:
     -workspace Example/RxApolloClient.xcworkspace
     -scheme RxApolloClient-Example
     -sdk iphonesimulator
-    -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2'
+    -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=13.0'
     -configuration Debug
     -enableCodeCoverage YES
     CODE_SIGNING_REQUIRED=NO | xcpretty
