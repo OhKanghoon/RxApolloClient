@@ -9,13 +9,13 @@
 import Foundation
 
 struct List<Element> {
-    let query: String
-    var items: [Element]
-    var after: String?
-    
-    init(query: String, items: [Element], after: String? = nil) {
-        self.query = query
-        self.items = items
-        self.after = after
-    }
+  let query: String
+  var items: [Element]
+  var after: String?
+
+  init(query: String, items: [Element], after: String? = nil) {
+    self.query = query
+    self.items = items
+    self.after = after
+  }
 }

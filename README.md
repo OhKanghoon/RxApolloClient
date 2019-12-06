@@ -1,5 +1,6 @@
 # RxApolloClient
 
+![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)
 [![CI Status](https://img.shields.io/travis/OhKanghoon/RxApolloClient.svg?style=flat)](https://travis-ci.org/OhKanghoon/RxApolloClient)
 [![Version](https://img.shields.io/cocoapods/v/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 [![License](https://img.shields.io/cocoapods/l/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
@@ -27,8 +28,8 @@ $ sh get_gql.sh
 
 ## Requirements
 
-- Xcode 10.0
-- Swift 5
+- Xcode 11.0
+- Swift 5.1
 
 ## Installation
 
