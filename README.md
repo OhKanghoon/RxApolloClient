@@ -2,7 +2,6 @@
 
 ![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)
 [![Build Status](https://github.com/OhKanghoon/RxApolloClient/workflows/CI/badge.svg)](https://github.com/OhKanghoon/RxApolloClient/actions)
-
 [![Version](https://img.shields.io/cocoapods/v/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 [![License](https://img.shields.io/cocoapods/l/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
