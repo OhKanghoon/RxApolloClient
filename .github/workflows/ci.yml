@@ -1,0 +1,32 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    env:
+      PROJECT: RxApolloClient.xcodeproj
+      SCHEME: RxApolloClient-Package
+      SDK: iphonesimulator13.1
+      DESTINATION: platform=iOS Simulator,name=iPhone 11 Pro,OS=13.1
+
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Generate Xcode Project
+      run: swift package generate-xcodeproj --enable-code-coverage
+      
+    - name: Build
+      run: |
+        set -o pipefail && xcodebuild clean build \
+          -project "$PROJECT" \
+          -scheme "$SCHEME" \
+          -sdk "$SDK" \
+          -destination "$DESTINATION" \
+          -configuration Debug \
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
