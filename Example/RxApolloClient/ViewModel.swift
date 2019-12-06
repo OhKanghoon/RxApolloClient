@@ -11,25 +11,26 @@ import RxSwift
 import RxCocoa
 
 class ViewModel {
-    
-    // Input
-    let searchRelay = PublishRelay<(String, String?)>()
-    
-    // Output
-    let repoList: Driver<List<Repository>>
-        
-    init(_ githubService: GithubServiceType) {
-        repoList = searchRelay
-            .distinctUntilChanged { $0.0 == $1.0 && $0.1 == $1.1 }
-            .flatMapLatest { githubService.searchRepositories(request: $0) }
-            .scan(nil) { (old, new) -> List<Repository> in
-                guard let old = old,
-                    old.query == new.query else { return new }
-                return .init(query: new.query,
-                             items: old.items + new.items,
-                             after: new.after)
-            }
-            .filterNil()
-            .asDriver { _ in .never() }
-    }
+
+  // Input
+  let searchRelay = PublishRelay<(String, String?)>()
+
+  // Output
+  let repoList: Driver<List<Repository>>
+
+  init(_ githubService: GithubServiceType) {
+    repoList = searchRelay
+      .distinctUntilChanged { $0.0 == $1.0 && $0.1 == $1.1 }
+      .flatMapLatest { githubService.searchRepositories(request: $0) }
+      .scan(nil) { (old, new) -> List<Repository> in
+        guard let old = old, old.query == new.query else { return new }
+        return .init(
+          query: new.query,
+          items: old.items + new.items,
+          after: new.after
+        )
+      }
+      .filterNil()
+      .asDriver { _ in .never() }
+  }
 }

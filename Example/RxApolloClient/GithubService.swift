@@ -13,27 +13,27 @@ import RxOptional
 typealias Repository = SearchRepositoriesQuery.Data.Search.Edge.Node.AsRepository
 
 protocol GithubServiceType {
-    func searchRepositories(request: (String, String?)) -> Single<List<Repository>>
+  func searchRepositories(request: (String, String?)) -> Single<List<Repository>>
 }
 
 class GithubService: GithubServiceType {
-    private let client: Client
+  private let client: Client
 
-    init(client: Client) {
-        self.client = client
+  init(client: Client) {
+    self.client = client
+  }
+
+  func searchRepositories(request: (String, String?)) -> Single<List<Repository>> {
+    let (query, after) = request
+    return self.client
+      .fetch(query: SearchRepositoriesQuery(query: query, first: 20, after: after))
+      .map {
+        List<Repository>(
+          query: query,
+          items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],
+          after: $0.search.pageInfo.endCursor
+        )
     }
-    
-    func searchRepositories(request: (String, String?)) -> Single<List<Repository>> {
-        let (query, after) = request
-        return self.client
-            .fetch(query: SearchRepositoriesQuery(query: query, first: 20, after: after))
-            .map {
-                List<Repository>(
-                    query: query,
-                    items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],
-                    after: $0.search.pageInfo.endCursor
-                )
-            }
-            .asSingle()
-    }
+    .asSingle()
+  }
 }
