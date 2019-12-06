@@ -9,8 +9,8 @@ import Foundation
 import Apollo
 import RxSwift
 
-enum ApolloError: Error {
-    case gqlErrors([GraphQLError])
+public enum ApolloError: Error {
+  case gqlErrors([GraphQLError])
 }
 
 extension ApolloClient: ReactiveCompatible { }
