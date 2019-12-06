@@ -33,11 +33,20 @@ $ sh get_gql.sh
 
 ## Installation
 
-RxApolloClient is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+- Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient'
+pod 'RxApolloClient', '1.2.0'
+```
+- Using [Swift Package Manager]
+```swift
+import PackageDescription
+
+let package = Package(
+  name: "YourApp",
+  dependencies: [
+    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.2.0")
+  ]
+)
 ```
 
 ## Usage

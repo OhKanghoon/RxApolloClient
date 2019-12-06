@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxApolloClient'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'Rx wrapper of Apollo Client'
   s.description      = <<-DESC
   RxSwift extensions for Apollo Client
