@@ -1,12 +1,8 @@
 use_frameworks!
+platform :ios, '11.0'
 
-target 'RxApolloClient_Example' do
+target 'GithubExample' do
   pod 'RxApolloClient', :path => '../'
   pod 'RxCocoa'
   pod 'RxOptional'
-  
-  target 'RxApolloClient_Tests' do
-    inherit! :search_paths
-    
-  end
 end
