@@ -15,7 +15,7 @@ let package = Package(
       .package(url: "git@github.com:ReactiveX/RxSwift.git", from: "5.0.0")
     ],
     targets: [
-        .target(name: "RxApolloClient", path: "RxApolloClient/Classes")
+        .target(name: "RxApolloClient", dependencies: ["Apollo", "RxSwift"])
     ],
     swiftLanguageVersions: [.v5]
 )
