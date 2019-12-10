@@ -9,7 +9,7 @@
 ## Get Started
 1. Install Apollo
 ```sh
-$ npm install -g apollo 2.18.3
+$ npm install -g apollo 2.21.0
 ```
 2. Fetch Scheme & Generate API Code
 #### get_gql.sh
@@ -35,7 +35,7 @@ $ sh get_gql.sh
 
 - Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient', '1.2.0'
+pod 'RxApolloClient', '1.3.0'
 ```
 - Using [Swift Package Manager]
 ```swift
@@ -44,7 +44,7 @@ import PackageDescription
 let package = Package(
   name: "YourApp",
   dependencies: [
-    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.2.0")
+    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.3.0")
   ]
 )
 ```
