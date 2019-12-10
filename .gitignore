@@ -8,4 +8,4 @@
 **/xcshareddata
 Pods/
 Carthage/
-Examples/**/Podfile.lock
+Example/**/Podfile.lock
