@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "RxApolloClient", targets: ["RxApolloClient"])
     ],
     dependencies: [
-      .package(url: "https://github.com/apollographql/apollo-ios.git", from: "0.15.3"),
+      .package(url: "https://github.com/apollographql/apollo-ios.git", .upToNextMajor(from: "0.20.0")),
       .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "5.0.0")),
     ],
     targets: [

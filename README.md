@@ -24,7 +24,7 @@ $ sh get_gql.sh
 
 ## Dependencies
 - [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 5.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.15.3)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.20.0)
 
 ## Requirements
 
