@@ -8,8 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     env:
+      DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
       PROJECT: RxApolloClient.xcodeproj
       SCHEME: RxApolloClient-Package
       SDK: iphonesimulator13.1
