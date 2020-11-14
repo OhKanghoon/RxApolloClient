@@ -30,14 +30,14 @@ extension Reactive where Base: ApolloClient {
   public func fetch<Query: GraphQLQuery>(
     query: Query,
     cachePolicy: CachePolicy = .returnCacheDataElseFetch,
-    context: UnsafeMutableRawPointer? = nil,
+    contextIdentifier: UUID? = nil,
     queue: DispatchQueue = DispatchQueue.main
   ) -> Maybe<Query.Data> {
     return Maybe.create { [weak base] observer in
       let cancellable = base?.fetch(
         query: query,
         cachePolicy: cachePolicy,
-        context: context,
+        contextIdentifier: contextIdentifier,
         queue: queue,
         resultHandler: { result in
           switch result {
@@ -49,7 +49,6 @@ extension Reactive where Base: ApolloClient {
             } else {
               observer(.completed)
             }
-
           case let .failure(error):
             observer(.error(error))
           }
@@ -79,7 +78,6 @@ extension Reactive where Base: ApolloClient {
       let watcher = base?.watch(
         query: query,
         cachePolicy: cachePolicy,
-        queue: queue,
         resultHandler: { result in
           switch result {
           case let .success(gqlResult):
@@ -111,13 +109,11 @@ extension Reactive where Base: ApolloClient {
    */
   public func perform<Mutation: GraphQLMutation>(
     mutation: Mutation,
-    context: UnsafeMutableRawPointer? = nil,
     queue: DispatchQueue = DispatchQueue.main
   ) -> Maybe<Mutation.Data> {
     return Maybe.create { [weak base] observer in
       let cancellable = base?.perform(
         mutation: mutation,
-        context: context,
         queue: queue,
         resultHandler: { result in
           switch result {
@@ -154,14 +150,12 @@ extension Reactive where Base: ApolloClient {
    */
   public func upload<Operation: GraphQLOperation>(
     operation: Operation,
-    context: UnsafeMutableRawPointer? = nil,
     files: [GraphQLFile],
     queue: DispatchQueue = .main
   ) -> Maybe<Operation.Data> {
     return Maybe.create { [weak base] observer in
       let cancellable = base?.upload(
         operation: operation,
-        context: context,
         files: files,
         queue: queue,
         resultHandler: { result in
