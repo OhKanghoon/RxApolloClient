@@ -10,11 +10,10 @@ jobs:
   build:
     runs-on: macos-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
       PROJECT: RxApolloClient.xcodeproj
       SCHEME: RxApolloClient-Package
-      SDK: iphonesimulator13.1
-      DESTINATION: platform=iOS Simulator,name=iPhone 11 Pro,OS=13.1
+      SDK: iphonesimulator
+      DESTINATION: platform=iOS Simulator,name=iPhone 11 Pro,OS=latest
 
     steps:
     - uses: actions/checkout@v1
