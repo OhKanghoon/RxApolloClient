@@ -6,22 +6,6 @@
 [![License](https://img.shields.io/cocoapods/l/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 
-## Get Started
-1. Install Apollo
-```sh
-$ npm install -g apollo 2.21.0
-```
-2. Fetch Scheme & Generate API Code
-#### get_gql.sh
-```sh
-cd ____ # project folder
-apollo schema:download --endpoint=__________ ./schema.json # end point url / scheme.json location
-apollo codegen:generate --target=swift --includes="$(find . -name '*.graphql')" --localSchemaFile=_______/schema.json _______/GraphQLAPI.swift # scheme.json location / generated API code location
-```
-```sh
-$ sh get_gql.sh
-```
-
 ## Dependencies
 - [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 5.1)
 - [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.36.0)
