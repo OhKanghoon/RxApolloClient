@@ -19,7 +19,7 @@
 
 - Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient', '1.3.0'
+pod 'RxApolloClient', '1.4.0'
 ```
 - Using [Swift Package Manager]
 ```swift
@@ -28,7 +28,7 @@ import PackageDescription
 let package = Package(
   name: "YourApp",
   dependencies: [
-    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.3.0")
+    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.4.0")
   ]
 )
 ```
