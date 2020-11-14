@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ViewModel {
+final class ViewModel {
 
   // Input
   let searchRelay = PublishRelay<(String, String?)>()
@@ -19,7 +19,7 @@ class ViewModel {
   let repoList: Driver<List<Repository>>
 
   init(_ githubService: GithubServiceType) {
-    repoList = searchRelay
+    self.repoList = searchRelay
       .distinctUntilChanged { $0.0 == $1.0 && $0.1 == $1.1 }
       .flatMapLatest { githubService.searchRepositories(request: $0) }
       .scan(nil) { (old, new) -> List<Repository> in

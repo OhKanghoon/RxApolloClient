@@ -92,19 +92,19 @@
 		BAA73096239AB47200C6907E /* GithubExample */ = {
 			isa = PBXGroup;
 			children = (
+				BA524612239AB4DB004C3154 /* RepoSearch.graphql */,
+				BA524619239AB4DB004C3154 /* schema.json */,
+				BAA730A5239AB47300C6907E /* Info.plist */,
+				BA524625239AB50B004C3154 /* Main.storyboard */,
 				BA524614239AB4DB004C3154 /* API.swift */,
 				BA524618239AB4DB004C3154 /* AppDelegate.swift */,
 				BA524613239AB4DB004C3154 /* Client.swift */,
 				BA524617239AB4DB004C3154 /* GithubService.swift */,
 				BA524611239AB4DA004C3154 /* List.swift */,
-				BA524612239AB4DB004C3154 /* RepoSearch.graphql */,
-				BA524619239AB4DB004C3154 /* schema.json */,
 				BA524615239AB4DB004C3154 /* ViewController.swift */,
 				BA524616239AB4DB004C3154 /* ViewModel.swift */,
-				BA524626239AB50B004C3154 /* LaunchScreen.xib */,
-				BA524625239AB50B004C3154 /* Main.storyboard */,
 				BAA730A0239AB47300C6907E /* Assets.xcassets */,
-				BAA730A5239AB47300C6907E /* Info.plist */,
+				BA524626239AB50B004C3154 /* LaunchScreen.xib */,
 			);
 			path = GithubExample;
 			sourceTree = "<group>";
@@ -121,6 +121,7 @@
 				BAA73091239AB47200C6907E /* Frameworks */,
 				BAA73092239AB47200C6907E /* Resources */,
 				A2ACAAAD5501972F29C32C62 /* [CP] Embed Pods Frameworks */,
+				BADC1328255FCC1600702423 /* Apollo Script */,
 			);
 			buildRules = (
 			);
@@ -219,6 +220,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GithubExample/Pods-GithubExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BADC1328255FCC1600702423 /* Apollo Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -11,17 +11,32 @@ import Apollo
 import RxSwift
 import RxApolloClient
 
-class Client {
+final class Client {
   private let client: ApolloClient
 
   init() {
     let configuration: URLSessionConfiguration = .default
     // TODO: Add your token
-    configuration.httpAdditionalHeaders = ["Authorization": "token ~~~~~~~~~~~"]
+    configuration.httpAdditionalHeaders = ["Authorization": "Bearer ADDYOURTOKEN"]
     configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-    let session = URLSession(configuration: configuration)
-    let url = URL(string: "https://api.github.com/graphql")!
-    client = ApolloClient(networkTransport: HTTPNetworkTransport(url: url, session: session))
+
+    let sessionClient = URLSessionClient(
+      sessionConfiguration: configuration,
+      callbackQueue: .main
+    )
+    let store = ApolloStore(cache: InMemoryNormalizedCache())
+
+    self.client = ApolloClient(
+      networkTransport: RequestChainNetworkTransport(
+        interceptorProvider: LegacyInterceptorProvider(
+          client: sessionClient,
+          shouldInvalidateClientOnDeinit: true,
+          store: store
+        ),
+        endpointURL: URL(string: "https://api.github.com/graphql")!
+      ),
+      store: store
+    )
   }
 
   func fetch<Query: GraphQLQuery>(

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxOptional
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
   // MARK: UI
 
@@ -29,24 +29,30 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.bindSearch()
+    self.bindTableView()
+  }
 
-    searchBar.rx.text
+  private func bindSearch() {
+    self.searchBar.rx.text
       .orEmpty
       .filterEmpty()
       .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
       .map { ($0, nil) }
-      .bind(to: viewModel.searchRelay)
-      .disposed(by: disposeBag)
+      .bind(to: self.viewModel.searchRelay)
+      .disposed(by: self.disposeBag)
+  }
 
-    viewModel.repoList
+  private func bindTableView() {
+    self.viewModel.repoList
       .map { $0.items }
       .filterEmpty()
-      .drive(tableView.rx.items(cellIdentifier: "repocell")) { (_, repo, cell) in
+      .drive(self.tableView.rx.items(cellIdentifier: "repocell")) { (_, repo, cell) in
         cell.textLabel?.text = repo.name
-    }
-    .disposed(by: disposeBag)
+      }
+      .disposed(by: self.disposeBag)
 
-    tableView.rx.contentOffset
+    self.tableView.rx.contentOffset
       .asObservable()
       .filter { [weak self] offset in
         guard let self = self else { return false }
@@ -58,9 +64,8 @@ class ViewController: UIViewController {
       .withLatestFrom(self.viewModel.repoList)
       .filter { $0.after != nil }
       .map { ($0.query, $0.after) }
-      .bind(to: viewModel.searchRelay)
-      .disposed(by: disposeBag)
+      .bind(to: self.viewModel.searchRelay)
+      .disposed(by: self.disposeBag)
   }
-
 }
 

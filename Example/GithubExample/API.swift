@@ -1,36 +1,40 @@
+// @generated
 //  This file was automatically generated and should not be edited.
 
 import Apollo
+import Foundation
 
 public final class SearchRepositoriesQuery: GraphQLQuery {
-  /// query SearchRepositories($query: String!, $first: Int!, $after: String) {
-  ///   search(query: $query, type: REPOSITORY, first: $first, after: $after) {
-  ///     __typename
-  ///     edges {
-  ///       __typename
-  ///       node {
-  ///         __typename
-  ///         ... on Repository {
-  ///           name
-  ///           owner {
-  ///             __typename
-  ///             avatarUrl
-  ///             login
-  ///           }
-  ///         }
-  ///       }
-  ///     }
-  ///     pageInfo {
-  ///       __typename
-  ///       endCursor
-  ///       hasNextPage
-  ///     }
-  ///   }
-  /// }
-  public let operationDefinition =
-    "query SearchRepositories($query: String!, $first: Int!, $after: String) { search(query: $query, type: REPOSITORY, first: $first, after: $after) { __typename edges { __typename node { __typename ... on Repository { name owner { __typename avatarUrl login } } } } pageInfo { __typename endCursor hasNextPage } } }"
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query SearchRepositories($query: String!, $first: Int!, $after: String) {
+      search(query: $query, type: REPOSITORY, first: $first, after: $after) {
+        __typename
+        edges {
+          __typename
+          node {
+            __typename
+            ... on Repository {
+              name
+              owner {
+                __typename
+                avatarUrl
+                login
+              }
+            }
+          }
+        }
+        pageInfo {
+          __typename
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+    """
 
-  public let operationName = "SearchRepositories"
+  public let operationName: String = "SearchRepositories"
 
   public var query: String
   public var first: Int
@@ -47,11 +51,13 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
+    public static let possibleTypes: [String] = ["Query"]
 
-    public static let selections: [GraphQLSelection] = [
-      GraphQLField("search", arguments: ["query": GraphQLVariable("query"), "type": "REPOSITORY", "first": GraphQLVariable("first"), "after": GraphQLVariable("after")], type: .nonNull(.object(Search.selections))),
-    ]
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("search", arguments: ["query": GraphQLVariable("query"), "type": "REPOSITORY", "first": GraphQLVariable("first"), "after": GraphQLVariable("after")], type: .nonNull(.object(Search.selections))),
+      ]
+    }
 
     public private(set) var resultMap: ResultMap
 
@@ -74,13 +80,15 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
     }
 
     public struct Search: GraphQLSelectionSet {
-      public static let possibleTypes = ["SearchResultItemConnection"]
+      public static let possibleTypes: [String] = ["SearchResultItemConnection"]
 
-      public static let selections: [GraphQLSelection] = [
-        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("edges", type: .list(.object(Edge.selections))),
-        GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
-      ]
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("edges", type: .list(.object(Edge.selections))),
+          GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
+        ]
+      }
 
       public private(set) var resultMap: ResultMap
 
@@ -122,12 +130,14 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
       }
 
       public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes = ["SearchResultItemEdge"]
+        public static let possibleTypes: [String] = ["SearchResultItemEdge"]
 
-        public static let selections: [GraphQLSelection] = [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("node", type: .object(Node.selections)),
-        ]
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("node", type: .object(Node.selections)),
+          ]
+        }
 
         public private(set) var resultMap: ResultMap
 
@@ -159,16 +169,18 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
         }
 
         public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes = ["Issue", "PullRequest", "Repository", "User", "Organization", "MarketplaceListing"]
+          public static let possibleTypes: [String] = ["App", "Issue", "MarketplaceListing", "Organization", "PullRequest", "Repository", "User"]
 
-          public static let selections: [GraphQLSelection] = [
-            GraphQLTypeCase(
-              variants: ["Repository": AsRepository.selections],
-              default: [
-                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              ]
-            )
-          ]
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLTypeCase(
+                variants: ["Repository": AsRepository.selections],
+                default: [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                ]
+              )
+            ]
+          }
 
           public private(set) var resultMap: ResultMap
 
@@ -176,8 +188,20 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
+          public static func makeApp() -> Node {
+            return Node(unsafeResultMap: ["__typename": "App"])
+          }
+
           public static func makeIssue() -> Node {
             return Node(unsafeResultMap: ["__typename": "Issue"])
+          }
+
+          public static func makeMarketplaceListing() -> Node {
+            return Node(unsafeResultMap: ["__typename": "MarketplaceListing"])
+          }
+
+          public static func makeOrganization() -> Node {
+            return Node(unsafeResultMap: ["__typename": "Organization"])
           }
 
           public static func makePullRequest() -> Node {
@@ -186,14 +210,6 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
 
           public static func makeUser() -> Node {
             return Node(unsafeResultMap: ["__typename": "User"])
-          }
-
-          public static func makeOrganization() -> Node {
-            return Node(unsafeResultMap: ["__typename": "Organization"])
-          }
-
-          public static func makeMarketplaceListing() -> Node {
-            return Node(unsafeResultMap: ["__typename": "MarketplaceListing"])
           }
 
           public static func makeRepository(name: String, owner: AsRepository.Owner) -> Node {
@@ -221,13 +237,15 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
           }
 
           public struct AsRepository: GraphQLSelectionSet {
-            public static let possibleTypes = ["Repository"]
+            public static let possibleTypes: [String] = ["Repository"]
 
-            public static let selections: [GraphQLSelection] = [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("name", type: .nonNull(.scalar(String.self))),
-              GraphQLField("owner", type: .nonNull(.object(Owner.selections))),
-            ]
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("name", type: .nonNull(.scalar(String.self))),
+                GraphQLField("owner", type: .nonNull(.object(Owner.selections))),
+              ]
+            }
 
             public private(set) var resultMap: ResultMap
 
@@ -269,13 +287,15 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
             }
 
             public struct Owner: GraphQLSelectionSet {
-              public static let possibleTypes = ["Organization", "User"]
+              public static let possibleTypes: [String] = ["Organization", "User"]
 
-              public static let selections: [GraphQLSelection] = [
-                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("avatarUrl", type: .nonNull(.scalar(String.self))),
-                GraphQLField("login", type: .nonNull(.scalar(String.self))),
-              ]
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("avatarUrl", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("login", type: .nonNull(.scalar(String.self))),
+                ]
+              }
 
               public private(set) var resultMap: ResultMap
 
@@ -325,13 +345,15 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
       }
 
       public struct PageInfo: GraphQLSelectionSet {
-        public static let possibleTypes = ["PageInfo"]
+        public static let possibleTypes: [String] = ["PageInfo"]
 
-        public static let selections: [GraphQLSelection] = [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("endCursor", type: .scalar(String.self)),
-          GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
-        ]
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("endCursor", type: .scalar(String.self)),
+            GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+          ]
+        }
 
         public private(set) var resultMap: ResultMap
 

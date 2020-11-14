@@ -16,7 +16,7 @@ protocol GithubServiceType {
   func searchRepositories(request: (String, String?)) -> Single<List<Repository>>
 }
 
-class GithubService: GithubServiceType {
+final class GithubService: GithubServiceType {
   private let client: Client
 
   init(client: Client) {
