@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxApolloClient'
-  s.version          = '1.4.0'
+  s.version          = '1.4.1'
   s.summary          = 'Rx wrapper of Apollo Client'
   s.description      = <<-DESC
   RxSwift extensions for Apollo Client
@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/**/*.{swift,h,m}'
   
-  s.dependency 'RxSwift', '~> 5.1'
+  s.dependency 'RxSwift', '~> 5.0'
   s.dependency 'Apollo', '~> 0.36.0'
 end

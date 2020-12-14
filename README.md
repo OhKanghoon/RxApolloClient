@@ -7,7 +7,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 
 ## Dependencies
-- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 5.1)
+- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 5.0)
 - [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.36.0)
 
 ## Requirements
@@ -19,7 +19,7 @@
 
 - Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient', '1.4.0'
+pod 'RxApolloClient', '1.4.1'
 ```
 - Using [Swift Package Manager]
 ```swift
