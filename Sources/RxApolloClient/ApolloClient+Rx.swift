@@ -15,7 +15,7 @@ public enum ApolloError: Error {
 
 extension ApolloClient: ReactiveCompatible { }
 
-extension Reactive where Base: ApolloClient {
+extension Reactive where Base: ApolloClientProtocol {
 
   /**
    Fetches a query from the server or from the local cache, depending on the current contents of the cache and the specified cache policy.
@@ -29,7 +29,7 @@ extension Reactive where Base: ApolloClient {
    */
   public func fetch<Query: GraphQLQuery>(
     query: Query,
-    cachePolicy: CachePolicy = .returnCacheDataElseFetch,
+    cachePolicy: CachePolicy = .default,
     contextIdentifier: UUID? = nil,
     queue: DispatchQueue = DispatchQueue.main
   ) -> Maybe<Query.Data> {
@@ -71,13 +71,14 @@ extension Reactive where Base: ApolloClient {
    */
   public func watch<Query: GraphQLQuery>(
     query: Query,
-    cachePolicy: CachePolicy = .returnCacheDataElseFetch,
-    queue: DispatchQueue = DispatchQueue.main
+    cachePolicy: CachePolicy = .default,
+    callbackQueue: DispatchQueue = DispatchQueue.main
   ) -> Observable<Query.Data> {
     return Observable.create { [weak base] observer in
       let watcher = base?.watch(
         query: query,
         cachePolicy: cachePolicy,
+        callbackQueue: callbackQueue,
         resultHandler: { result in
           switch result {
           case let .success(gqlResult):
@@ -109,11 +110,13 @@ extension Reactive where Base: ApolloClient {
    */
   public func perform<Mutation: GraphQLMutation>(
     mutation: Mutation,
+    publishResultToStore: Bool = true,
     queue: DispatchQueue = DispatchQueue.main
   ) -> Maybe<Mutation.Data> {
     return Maybe.create { [weak base] observer in
       let cancellable = base?.perform(
         mutation: mutation,
+        publishResultToStore: publishResultToStore,
         queue: queue,
         resultHandler: { result in
           switch result {

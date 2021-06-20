@@ -13,7 +13,7 @@ jobs:
       PROJECT: RxApolloClient.xcodeproj
       SCHEME: RxApolloClient-Package
       SDK: iphonesimulator
-      DESTINATION: platform=iOS Simulator,name=iPhone 11 Pro,OS=latest
+      DESTINATION: platform=iOS Simulator,name=iPhone 12 Pro,OS=latest
 
     steps:
     - uses: actions/checkout@v1
