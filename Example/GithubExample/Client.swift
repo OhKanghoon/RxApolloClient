@@ -41,7 +41,7 @@ final class Client {
 
   func fetch<Query: GraphQLQuery>(
     query: Query,
-    cachePolicy: CachePolicy = .returnCacheDataElseFetch,
+    cachePolicy: CachePolicy = .default,
     queue: DispatchQueue = DispatchQueue.main
   ) -> Observable<Query.Data> {
     return self.client.rx

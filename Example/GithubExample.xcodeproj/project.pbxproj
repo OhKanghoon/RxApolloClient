@@ -10,7 +10,6 @@
 		BA52461B239AB4DC004C3154 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524611239AB4DA004C3154 /* List.swift */; };
 		BA52461C239AB4DC004C3154 /* RepoSearch.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BA524612239AB4DB004C3154 /* RepoSearch.graphql */; };
 		BA52461D239AB4DC004C3154 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524613239AB4DB004C3154 /* Client.swift */; };
-		BA52461E239AB4DC004C3154 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524614239AB4DB004C3154 /* API.swift */; };
 		BA52461F239AB4DC004C3154 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524615239AB4DB004C3154 /* ViewController.swift */; };
 		BA524620239AB4DC004C3154 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524616239AB4DB004C3154 /* ViewModel.swift */; };
 		BA524621239AB4DC004C3154 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524617239AB4DB004C3154 /* GithubService.swift */; };
@@ -19,6 +18,7 @@
 		BA524627239AB50B004C3154 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA524625239AB50B004C3154 /* Main.storyboard */; };
 		BA524628239AB50B004C3154 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA524626239AB50B004C3154 /* LaunchScreen.xib */; };
 		BAA730A1239AB47300C6907E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA730A0239AB47300C6907E /* Assets.xcassets */; };
+		BAB48A07267F878E00071356 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB48A06267F878E00071356 /* API.swift */; };
 		CD803E6E9BCAC2935AB7922B /* Pods_GithubExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BE4858939A79746682EBCC /* Pods_GithubExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,6 @@
 		BA524611239AB4DA004C3154 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		BA524612239AB4DB004C3154 /* RepoSearch.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepoSearch.graphql; sourceTree = "<group>"; };
 		BA524613239AB4DB004C3154 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		BA524614239AB4DB004C3154 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BA524615239AB4DB004C3154 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA524616239AB4DB004C3154 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BA524617239AB4DB004C3154 /* GithubService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		BAA73094239AB47200C6907E /* GithubExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA730A0239AB47300C6907E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAA730A5239AB47300C6907E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAB48A06267F878E00071356 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 				BA524619239AB4DB004C3154 /* schema.json */,
 				BAA730A5239AB47300C6907E /* Info.plist */,
 				BA524625239AB50B004C3154 /* Main.storyboard */,
-				BA524614239AB4DB004C3154 /* API.swift */,
+				BAB48A06267F878E00071356 /* API.swift */,
 				BA524618239AB4DB004C3154 /* AppDelegate.swift */,
 				BA524613239AB4DB004C3154 /* Client.swift */,
 				BA524617239AB4DB004C3154 /* GithubService.swift */,
@@ -116,12 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAA730A8239AB47300C6907E /* Build configuration list for PBXNativeTarget "GithubExample" */;
 			buildPhases = (
+				BADC1328255FCC1600702423 /* Apollo Script */,
 				7AB08F4EC2AFAA49E7554961 /* [CP] Check Pods Manifest.lock */,
 				BAA73090239AB47200C6907E /* Sources */,
 				BAA73091239AB47200C6907E /* Frameworks */,
 				BAA73092239AB47200C6907E /* Resources */,
 				A2ACAAAD5501972F29C32C62 /* [CP] Embed Pods Frameworks */,
-				BADC1328255FCC1600702423 /* Apollo Script */,
 			);
 			buildRules = (
 			);
@@ -249,10 +249,10 @@
 				BA524620239AB4DC004C3154 /* ViewModel.swift in Sources */,
 				BA52461D239AB4DC004C3154 /* Client.swift in Sources */,
 				BA524621239AB4DC004C3154 /* GithubService.swift in Sources */,
-				BA52461E239AB4DC004C3154 /* API.swift in Sources */,
 				BA524622239AB4DC004C3154 /* AppDelegate.swift in Sources */,
 				BA52461F239AB4DC004C3154 /* ViewController.swift in Sources */,
 				BA52461B239AB4DC004C3154 /* List.swift in Sources */,
+				BAB48A07267F878E00071356 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -363,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -381,7 +381,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GithubExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,7 +402,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GithubExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
