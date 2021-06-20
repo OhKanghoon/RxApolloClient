@@ -7,19 +7,19 @@
 [![Platform](https://img.shields.io/cocoapods/p/RxApolloClient.svg?style=flat)](https://cocoapods.org/pods/RxApolloClient)
 
 ## Dependencies
-- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 5.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.36.0)
+- [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 6.0)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.44.0)
 
 ## Requirements
 
-- Xcode 11.0
-- Swift 5.1
+- Xcode 12.0
+- Swift 5.4
 
 ## Installation
 
 - Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient', '1.4.1'
+pod 'RxApolloClient', '1.5.0'
 ```
 - Using [Swift Package Manager]
 ```swift
@@ -28,7 +28,7 @@ import PackageDescription
 let package = Package(
   name: "YourApp",
   dependencies: [
-    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.4.0")
+    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.5.0")
   ]
 )
 ```
