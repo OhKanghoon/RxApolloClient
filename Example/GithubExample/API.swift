@@ -16,6 +16,7 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
           node {
             __typename
             ... on Repository {
+              __typename
               name
               owner {
                 __typename
@@ -241,6 +242,7 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
 
             public static var selections: [GraphQLSelection] {
               return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("name", type: .nonNull(.scalar(String.self))),
                 GraphQLField("owner", type: .nonNull(.object(Owner.selections))),

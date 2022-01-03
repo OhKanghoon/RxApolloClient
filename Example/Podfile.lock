@@ -1,0 +1,45 @@
+PODS:
+  - Apollo (0.50.0):
+    - Apollo/Core (= 0.50.0)
+  - Apollo/Core (0.50.0)
+  - RxApolloClient (1.6.0):
+    - Apollo (~> 0.50.0)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+
+DEPENDENCIES:
+  - RxApolloClient (from `../`)
+  - RxCocoa
+  - RxOptional
+
+SPEC REPOS:
+  trunk:
+    - Apollo
+    - RxCocoa
+    - RxOptional
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  RxApolloClient:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Apollo: 5e4476a3236bd576686085b7cd99655c788e4d74
+  RxApolloClient: b4cf9913115c9060e07fbc3bc95e45e30df8e2ed
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+
+PODFILE CHECKSUM: 29a64dac476234ca3ec1455b5720f17757e2188a
+
+COCOAPODS: 1.11.2

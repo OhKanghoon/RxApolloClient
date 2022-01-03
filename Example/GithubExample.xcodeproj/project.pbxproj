@@ -116,8 +116,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAA730A8239AB47300C6907E /* Build configuration list for PBXNativeTarget "GithubExample" */;
 			buildPhases = (
-				BADC1328255FCC1600702423 /* Apollo Script */,
 				7AB08F4EC2AFAA49E7554961 /* [CP] Check Pods Manifest.lock */,
+				BADC1328255FCC1600702423 /* Apollo Script */,
 				BAA73090239AB47200C6907E /* Sources */,
 				BAA73091239AB47200C6907E /* Frameworks */,
 				BAA73092239AB47200C6907E /* Resources */,

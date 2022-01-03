@@ -28,7 +28,7 @@ final class Client {
 
     self.client = ApolloClient(
       networkTransport: RequestChainNetworkTransport(
-        interceptorProvider: LegacyInterceptorProvider(
+        interceptorProvider: DefaultInterceptorProvider(
           client: sessionClient,
           shouldInvalidateClientOnDeinit: true,
           store: store
