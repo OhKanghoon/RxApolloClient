@@ -8,18 +8,18 @@
 
 ## Dependencies
 - [RxSwift](https://github.com/ReactiveX/RxSwift) (~> 6.0)
-- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.44.0)
+- [apollo-ios](https://github.com/apollographql/apollo-ios) (~> 0.50.0)
 
 ## Requirements
 
-- Xcode 12.0
-- Swift 5.4
+- Xcode 13.2.1
+- Swift 5.5.2
 
 ## Installation
 
 - Using [CocoaPods](https://cocoapods.org)
 ```ruby
-pod 'RxApolloClient', '1.5.0'
+pod 'RxApolloClient', '1.6.0'
 ```
 - Using [Swift Package Manager]
 ```swift
@@ -28,7 +28,7 @@ import PackageDescription
 let package = Package(
   name: "YourApp",
   dependencies: [
-    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.5.0")
+    .package(url: "https://github.com/OhKanghoon/RxApolloClient", from: "1.6.0")
   ]
 )
 ```
