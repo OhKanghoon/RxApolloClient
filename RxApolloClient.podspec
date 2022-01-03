@@ -12,10 +12,14 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/OhKanghoon/RxApolloClient.git', :tag => s.version.to_s }
 
   s.swift_version = '5.0'
+  
   s.ios.deployment_target = '12.0'
+  s.osx.deployment_target = '10.14'
+  s.tvos.deployment_target = '12.0'
+  s.watchos.deployment_target = '5.0'
 
   s.source_files = 'Sources/**/*.{swift,h,m}'
   
   s.dependency 'RxSwift', '~> 6.0'
-  s.dependency 'Apollo', '~> 0.44.0'
+  s.dependency 'Apollo', '~> 0.50.0'
 end

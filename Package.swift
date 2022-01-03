@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -11,11 +11,17 @@ let package = Package(
         .library(name: "RxApolloClient", targets: ["RxApolloClient"])
     ],
     dependencies: [
-      .package(url: "https://github.com/apollographql/apollo-ios.git", .upToNextMajor(from: "0.44.0")),
+      .package(url: "https://github.com/apollographql/apollo-ios.git", .upToNextMajor(from: "0.50.0")),
       .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
     ],
     targets: [
-        .target(name: "RxApolloClient", dependencies: ["Apollo", "RxSwift"])
+        .target(
+          name: "RxApolloClient",
+          dependencies: [
+            .product(name: "Apollo", package: "apollo-ios"),
+            .product(name: "RxSwift", package: "RxSwift"),
+          ]
+        )
     ],
     swiftLanguageVersions: [.v5]
 )
